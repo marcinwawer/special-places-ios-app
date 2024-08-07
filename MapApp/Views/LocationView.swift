@@ -6,16 +6,16 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct LocationView: View {
     
     @EnvironmentObject private var locationsViemModel: LocationsViewModel
     
     var body: some View {
-        List {
-            ForEach(locationsViemModel.locations) {
-                Text($0.name)
-            }
+        ZStack {
+            Map(position: $locationsViemModel.mapRegion)
+//                .animation(.easeInOut, value: locationsViemModel.mapRegion)
         }
     }
 }
