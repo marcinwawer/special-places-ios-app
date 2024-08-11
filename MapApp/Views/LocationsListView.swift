@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct LocationsListView: View {
-    @EnvironmentObject private var locationsViewModel: LocationsViewModel
+    @EnvironmentObject private var vm: LocationsViewModel
     
     var body: some View {
         List {
-            ForEach(locationsViewModel.locations) { location in
+            ForEach(vm.locations) { location in
                 Button(action: {
-                    locationsViewModel.showNextLocation(location: location)
+                    vm.showNextLocation(location: location)
                 }, label: {
                     listRowView(location: location)
                 })
